@@ -108,3 +108,4 @@ Required Resources:
 
 ## Additional Notes
 This project demonstrates how merging operational and experiential data can unlock smarter retail decision-making — an extensible solution for any product-based business beyond tea.
+
