@@ -1,0 +1,23 @@
+# Ignore virtual environment
+venv/
+
+# Ignore output data files (optional)
+outputs/*.csv
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pid
+
+# Ignore environment variables
+.env
+
+# Ignore VS Code settings (optional)
+.vscode/
+
+# Ignore test file 
+test.py
+
+logs/
+
+output/*.parquet
