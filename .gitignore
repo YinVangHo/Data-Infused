@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.env
+logs/
+
+airflow-webserver.pid
+airflow.cfg
+docker-compose.yaml
+webserver_config.py
