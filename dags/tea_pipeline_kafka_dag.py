@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 default_args = {
     "owner": "airflow",
     "retries": 1,
-    "retry_delay": timedelta(minutes=2),
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
