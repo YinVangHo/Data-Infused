@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_tea_transactions
+    description: "Cleaned and aliased tea transaction data from Kafka stream"
+    columns:
+      - name: TEA_ID
+        description: "Unique identifier for each tea product"
+        tests:
+          - not_null
+
+      - name: QUANTITY
+        description: "Number of units sold in the transaction"
+
+      - name: PRICE
+        description: "Unit price of the tea item sold"

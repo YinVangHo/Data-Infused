@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: tea_schema
+    database: data_infused_db
+    schema: tea_schema
+    tables:
+      - name: tea_transactions
+        description: "Raw transaction data streamed from Kafka"
+        columns:
+          - name: transaction_id
+            description: "Unique identifier for each transaction"
+          - name: tea_id
+            description: "Unique ID for each tea product"
+          - name: customer_id
+            description: "Identifier for the customer"
+          - name: quantity
+            description: "Number of units purchased"
+          - name: price
+            description: "Price of each unit"
+          - name: name
+            description: "Name of the tea"
+          - name: category
+            description: "Type/category of the tea"
+          - name: country
+            description: "Country of purchase"
+          - name: timestamp
+            description: "Time of transaction (string format)"
