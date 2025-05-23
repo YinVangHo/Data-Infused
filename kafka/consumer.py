@@ -73,11 +73,12 @@ def main():
     consumer = KafkaConsumer(
         KAFKA_TOPIC,
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-        auto_offset_reset='earliest',
+        auto_offset_reset='earliest',      # keep this
+        consumer_timeout_ms=10000,         # <— exit after 10s idle
         enable_auto_commit=True,
         group_id='tea-consumer-group',
         value_deserializer=lambda m: json.loads(m.decode('utf-8'))
-    )
+     )
 
     try:
         snowflake_conn = get_snowflake_connection()
