@@ -10,3 +10,4 @@ select
     TOTAL_REVENUE,
     CURRENT_TIMESTAMP as METRICS_GENERATED_AT
 from {{ ref('int_tea_metrics') }}
+

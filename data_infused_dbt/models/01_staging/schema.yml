@@ -6,7 +6,7 @@ models:
     columns:
       - name: TEA_ID
         description: "Unique identifier for each tea product"
-        tests:
+        data_tests:
           - not_null
 
       - name: QUANTITY
@@ -14,3 +14,4 @@ models:
 
       - name: PRICE
         description: "Unit price of the tea item sold"
+

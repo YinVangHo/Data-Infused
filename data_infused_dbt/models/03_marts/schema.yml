@@ -1,0 +1,12 @@
+Version: 2
+
+models:
+  - name: fct_tea_sales_summary
+    description: "Fact table summarizing tea sales performance metrics"
+    columns:
+      - name: TEA_ID
+        description: "Unique identifier for each tea product"
+      - name: TOTAL_TRANSACTIONS
+        description: "Total number of transactions involving the tea"
+      - name: TOTAL_REVENUE
+        description: "Total revenue generated from the tea's sales"
