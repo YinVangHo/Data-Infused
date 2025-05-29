@@ -5,14 +5,25 @@
     incremental_strategy='merge'
 ) }}
 
-with new_data as (
+{% if is_incremental() %}
+  with latest_id as (
+      select max(TEA_ID) as max_id
+      from {{ this }}
+  ),
+{% else %}
+  with latest_id as (
+      select 0 as max_id
+  ),
+{% endif %}
+
+new_data as (
     select
         TEA_ID,
         QUANTITY,
         PRICE
     from {{ ref('stg_tea_transactions') }}
     {% if is_incremental() %}
-      where TEA_ID not in (select TEA_ID from {{ this }})
+        where TEA_ID > (select max_id from latest_id)
     {% endif %}
 ),
 
