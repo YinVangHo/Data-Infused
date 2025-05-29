@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import time
 from kafka import KafkaConsumer, KafkaProducer
 from dotenv import load_dotenv
 import snowflake.connector
@@ -73,17 +74,24 @@ def main():
     consumer = KafkaConsumer(
         KAFKA_TOPIC,
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-        auto_offset_reset='earliest',      # keep this
-        consumer_timeout_ms=10000,         # <— exit after 10s idle
+        auto_offset_reset='earliest',
+        consumer_timeout_ms=10000,  # exits after 10s idle
         enable_auto_commit=True,
         group_id='tea-consumer-group',
         value_deserializer=lambda m: json.loads(m.decode('utf-8'))
-     )
+    )
+
+    MAX_DURATION = 150  # 2.5 minutes max runtime
+    start_time = time.time()
 
     try:
         snowflake_conn = get_snowflake_connection()
 
         for message in consumer:
+            if time.time() - start_time > MAX_DURATION:
+                logging.info("⏱️ Max duration reached. Stopping consumer.")
+                break
+
             data = message.value
 
             if is_valid(data):

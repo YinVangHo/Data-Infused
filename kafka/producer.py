@@ -21,7 +21,6 @@ logging.basicConfig(
 
 # Initialize Faker and Kafka
 faker = Faker()
-
 producer = KafkaProducer(
     bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
@@ -62,7 +61,11 @@ def fetch_fake_tea_transaction():
 
 def main():
     logging.info(f"Producer started. Sending to topic: {KAFKA_TOPIC}")
-    while is_running:
+    
+    MAX_DURATION = 150  # Run for 2.5 minutes max
+    start_time = time.time()
+
+    while is_running and (time.time() - start_time) < MAX_DURATION:
         msg = fetch_fake_tea_transaction()
         producer.send(KAFKA_TOPIC, value=msg)
         logging.info(f"Sent: {msg}")
@@ -71,7 +74,7 @@ def main():
 
     producer.flush()
     producer.close()
-    logging.info("Producer stopped.")
+    logging.info("Producer stopped after duration or signal.")
 
 if __name__ == "__main__":
     main()
