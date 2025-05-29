@@ -33,11 +33,11 @@ jobs:
           pip install sqlfluff-templater-dbt
 
       - name: Run dbt debug
-        run: dbt debug --project-dir data_infused_dbt
+        run: dbt debug --project-dir data_infused_dbt --profiles-dir data_infused_dbt
 
       - name: Run dbt tests
-        run: dbt test --project-dir data_infused_dbt
+        run: dbt test --project-dir data_infused_dbt --profiles-dir data_infused_dbt
 
       - name: Run SQLFluff lint
-        run: sqlfluff lint models --dialect snowflake
+        run: sqlfluff lint models --dialect snowflake --project-dir data_infused_dbt --profiles-dir data_infused_dbt
         working-directory: ${{ env.PROJECT_DIR }}
