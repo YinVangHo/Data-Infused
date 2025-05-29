@@ -32,6 +32,12 @@ jobs:
           pip install sqlfluff
           pip install sqlfluff-templater-dbt
 
+      - name: List files in profiles dir
+        run: ls -l data_infused_dbt
+
+      - name: Show profiles.yml
+        run: cat data_infused_dbt/profiles.yml
+
       - name: Run dbt debug
         run: dbt debug --project-dir data_infused_dbt --profiles-dir data_infused_dbt
 
