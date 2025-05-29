@@ -11,4 +11,3 @@ data_infused_dbt:
       warehouse: "{{ env_var('DBT_WAREHOUSE') }}"
       schema: "{{ env_var('DBT_SCHEMA') }}"
       threads: 4
- 
