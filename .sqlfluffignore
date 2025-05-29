@@ -1,0 +1,8 @@
+# Ignore dbt build artifacts
+data_infused_dbt/target/
+data_infused_dbt/dbt_packages/
+data_infused_dbt/logs/
+
+# Optional: skip snapshots or tests if needed
+data_infused_dbt/snapshots/
+data_infused_dbt/tests/

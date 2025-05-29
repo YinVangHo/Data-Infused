@@ -1,0 +1,11 @@
+[sqlfluff]
+dialect = snowflake
+exclude_rules = L009,L014,L031,L034,L036
+templater = jinja
+
+[sqlfluff:rules]
+max_line_length = 120
+tab_space_size = 2
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = true
