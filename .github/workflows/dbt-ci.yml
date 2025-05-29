@@ -28,6 +28,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install dbt-snowflake sqlfluff
+          pip install sqlfluff
 
       - name: Run dbt debug
         run: dbt debug --project-dir data_infused_dbt --profiles-dir data_infused_dbt
