@@ -7,5 +7,6 @@ exclude_rules = L009,L014,L031,L034,L036
 max_line_length = 120
 tab_space_size = 2
 
-[sqlfluff:templater:jinja]
-apply_dbt_builtins = true
+[sqlfluff:templater:dbt]
+project_dir = data_infused_dbt
+profiles_dir = data_infused_dbt
