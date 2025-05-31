@@ -1,0 +1,11 @@
+[sqlfluff]
+templater = dbt
+dialect = snowflake
+exclude_rules = L009,L014,L031,L034,L036
+
+[sqlfluff:rules]
+max_line_length = 120
+tab_space_size = 2
+
+[sqlfluff:templater:dbt]
+profiles_dir = .
