@@ -4,3 +4,5 @@ python-dotenv
 faker
 snowflake-connector-python
 dbt-snowflake
+sqlfluff
+sqlfluff-templater-dbt

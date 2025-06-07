@@ -1,15 +1,1 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+The data model shown follows a Third Normal Form (3NF) approach, to ensure data integrity, reduce redundancy, and maintain flexibility. Each table in the schema represents a distinct entity—such as customers, teas, locations, transactions, and reviews—with clearly defined primary keys and attributes that depend solely on those keys. Relationships between tables are maintained through foreign keys, allowing for consistent referencing without duplicating data. For example, the tea_transactions table links to customers, teas, and location tables using their respective IDs. This separation of concerns minimizes data anomalies and supports efficient data updates. The design avoids transitive dependencies and ensures that each piece of data is stored only once, making the model highly normalized and well-suited for operational systems.
